@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>DataMaking</title>
+	<meta charset="utf-8" />
+
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="./css/app.css" type="text/css" />
+    <link rel="stylesheet" href="./css/jquery-ui.css" type="text/css" />
+
+    <!-- ライブラリ -->
+    <script src="./scripts/typings/jquery/jquery-3.1.1.js"></script>
+    <script src="./scripts/typings/jqueryui/jquery-ui.js"></script>
+</head>
+<body>
+    <div id="making-tool">
+        <div id="making-tool-head">
+            <div id="making-tool-head-guide">
+                <ol>
+                    <li id="guide01">追加するイベントのイベント名，開催日時，開催場所を確認します</li>
+                    <li id="guide02">追加する写真を選びます</li>
+                    <li id="guide03">選んだ写真ファイルのコピーを名前を変えてimagesフォルダに保存します</li>
+                    <li id="guide04">scriptsフォルダ内のsaisei.const.jsファイルを開きます</li>
+                    <li id="guide05">saisei.const.jsファイルに追記して保存します</li>
+                </ol>
+            </div>
+        </div>
+        <div id="making-tool-body">
+            <div id="making-tool-body-detail"><img id="detail-img01" src="images/datamaking01.png"/></div>
+            <div id="making-tool-body-input"><span><button id="detail-button01">前へ</button><button id="detail-button02">次へ</button></span></div>
+        </div>
+        <div id="making-tool-foot"></div>
+    </div>
+
+<script>
+    $("#detail-button01").click(function () {
+        var imgSrc = $("#detail-img01").attr("src");
+        if (imgSrc.indexOf("img01") !== -1) {
+            //何もしない
+        } else if (imgSrc.indexOf("making02") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking01.png");
+        } else if (imgSrc.indexOf("making03") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking02.png");
+        } else if (imgSrc.indexOf("making04") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking03.png");
+        } else if (imgSrc.indexOf("making05") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking04.png");
+        }
+    });
+    $("#detail-button02").click(function () {
+        var imgSrc = $("#detail-img01").attr("src");
+        if (imgSrc.indexOf("making01") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking02.png");
+        } else if (imgSrc.indexOf("making02") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking03.png");
+        } else if (imgSrc.indexOf("making03") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking04.png");
+        } else if (imgSrc.indexOf("making04") !== -1) {
+            $("#detail-img01").attr("src", "images/datamaking05.png");
+        } else if (imgSrc.indexOf("making05") !== -1) {
+            // 何もしない
+        }
+    });
+    $("#detail-button01").button();
+    $("#detail-button02").button();
+</script>
+</body>
+</html>
+
